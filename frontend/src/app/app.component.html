@@ -1,0 +1,11 @@
+<nav>
+  <a routerLink="/products">Produits</a>
+  <a routerLink="/login">Connexion</a>
+  <a routerLink="/register">Inscription</a>
+
+  <a *ngIf="isAdmin" routerLink="/admin/products">Admin produits</a>
+</nav>
+
+<hr />
+
+<router-outlet></router-outlet>

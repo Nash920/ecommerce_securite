@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Catalogue</h2>
+
+  <div *ngIf="products.length === 0">
+    Aucun produit pour le moment.
+  </div>
+
+  <div class="product-card" *ngFor="let p of products">
+    <h3>{{ p.name }}</h3>
+    <p>{{ p.description }}</p>
+    <p><strong>Prix :</strong> {{ p.price }} €</p>
+    <p><strong>Stock :</strong> {{ p.stock }}</p>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="container">
+  <h2>Admin - Gestion des produits</h2>
+
+  <div *ngIf="error" style="color:red">{{ error }}</div>
+
+  <form (ngSubmit)="createProduct()">
+    <h3>Créer un produit</h3>
+
+    <div>
+      <label>Nom</label>
+      <input type="text" [(ngModel)]="name" name="name" required />
+    </div>
+
+    <div>
+      <label>Description</label>
+      <textarea
+        [(ngModel)]="description"
+        name="description"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div>
+      <label>Prix</label>
+      <input
+        type="number"
+        [(ngModel)]="price"
+        name="price"
+        step="0.01"
+        required
+      />
+    </div>
+
+    <div>
+      <label>Stock</label>
+      <input
+        type="number"
+        [(ngModel)]="stock"
+        name="stock"
+        required
+      />
+    </div>
+
+    <button type="submit">Ajouter</button>
+  </form>
+
+  <hr />
+
+  <h3>Liste des produits</h3>
+
+  <div class="product-card" *ngFor="let p of products">
+    <h3>{{ p.name }}</h3>
+    <p>{{ p.description }}</p>
+    <p>Prix : {{ p.price }} €</p>
+    <p>Stock : {{ p.stock }}</p>
+
+    <button class="delete-btn" (click)="deleteProduct(p.id)">
+      Supprimer
+    </button>
+  </div>
+</div>
